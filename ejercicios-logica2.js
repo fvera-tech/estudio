@@ -122,3 +122,33 @@ function reverseArray(array) {
 
 console.log(reverseArray([1, 2, 3, 4]))
 console.log(reverseArray("hola"))
+
+// FIZZBUZZ
+
+function fizzBuzz(num) {
+    if(typeof num !== "number") { return "Ingrese valor numérico" };
+    let array = [];
+    let fizzBuzzArray = [];
+    let contador = 0;
+
+    for(i = 1; i <= num ; i++) {
+        array.push(i)
+    }
+
+    while(contador <= num -1) {
+        if(array[contador] % 5 === 0 && array[contador] % 3 === 0) {
+            fizzBuzzArray.push("FizzBuzz")
+        } else if(array[contador] % 5 === 0) {
+            fizzBuzzArray.push("Buzz")
+        } else if(array[contador] % 3 === 0) {
+            fizzBuzzArray.push("Fizz")
+        } else {
+            fizzBuzzArray.push(array[contador])
+        }
+        contador++
+    }
+    return fizzBuzzArray;
+}
+
+console.log(fizzBuzz(20));
+console.log(fizzBuzz(30));
