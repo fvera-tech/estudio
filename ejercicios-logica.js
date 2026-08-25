@@ -51,15 +51,21 @@ console.log(ejercicio3(70)); // "adulto mayor"
 let ejercicio4 = function calculadoraEnvio(kg) {
     if(kg < 0) { return "Peso inválido";}
 
-    if(kg <= 1) { return `$${kg}`; }
+    if(kg <= 1) { return "$3.000"; }
     else if(kg <= 5) { return "$5.000"; }
     else { return "$8.000"; }
 }
     
 console.log(ejercicio4(3.5)); // "$5.000"
+console.log(ejercicio4(0.5)); // "$3.000"
+console.log(ejercicio4(-1)); // "Peso inválido"
 
 // 5 **TRIÁNGULO VÁLIDO**
 let ejercicio5 = function trianguloValido(a, b, c) {
+
+    // validación de lados positivos
+    if(a <= 0 || b<= 0 || c <= 0) { return "Error. Los valores deben ser positivos" } 
+
     if(a + b > c && a + c > b && b + c > a) {
         return "sí es triángulo";
     } else {
@@ -68,3 +74,5 @@ let ejercicio5 = function trianguloValido(a, b, c) {
 }
 console.log(ejercicio5(3, 4, 5)); // "sí es triángulo"
 console.log(ejercicio5(1, 2, 10)); // "no es triángulo"
+console.log(ejercicio5(-1, 2, 3)); // "Error. Los valores deben ser positivos"
+console.log(ejercicio5(0, 1, 1)); // "Error. Los valores deben ser positivos"
