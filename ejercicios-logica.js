@@ -33,3 +33,38 @@ let ejercicio2 = function mayorDeTres(x, y, z) {
     }
 }
 console.log(ejercicio2(4, 9, 2)); // "el mayor es 9"
+
+// 3 **CLASIFICADOR DE EDAD**
+let ejercicio3 = function clasificacionEdad(edad) {
+    if(edad < 0) { return "Edad inválida"; }
+    else if(edad <= 12) { return "niño"; }
+    else if(edad <= 17) { return "adolescente"; }
+    else if(edad <= 64) { return "adulto"; }
+    else { return "adulto mayor"; }
+}
+console.log(ejercicio3(15)); // "adolescente"
+console.log(ejercicio3(25)); // "adulto"
+console.log(ejercicio3(70)); // "adulto mayor"
+
+// 4 **CALCULADORA DE ENVÍO**
+
+let ejercicio4 = function calculadoraEnvio(kg) {
+    if(kg < 0) { return "Peso inválido";}
+
+    if(kg <= 1) { return `$${kg}`; }
+    else if(kg <= 5) { return "$5.000"; }
+    else { return "$8.000"; }
+}
+    
+console.log(ejercicio4(3.5)); // "$5.000"
+
+// 5 **TRIÁNGULO VÁLIDO**
+let ejercicio5 = function trianguloValido(a, b, c) {
+    if(a + b > c && a + c > b && b + c > a) {
+        return "sí es triángulo";
+    } else {
+        return "no es triángulo";
+    }
+}
+console.log(ejercicio5(3, 4, 5)); // "sí es triángulo"
+console.log(ejercicio5(1, 2, 10)); // "no es triángulo"
