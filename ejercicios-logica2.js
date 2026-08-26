@@ -58,7 +58,7 @@ function sumaAcumulada(num) {
 
 
 console.log(sumaAcumulada(10)); // 55 
-console.log(sumaAcumulada(-3)); //5050
+console.log(sumaAcumulada(-3)); // -6
 console.log(sumaAcumulada(5)); // 15
 console.log(sumaAcumulada(10));
 console.log(sumaAcumulada("awaduwadu"));
@@ -66,12 +66,8 @@ console.log(sumaAcumulada(-5));
 
 // ES PRIMO
 
-function esPrimo(num) {
-    /*
-    1. Verificar que el valor pasado sea numérico y positivos.
-    2. Verificar que num sólo sea divisible por sí mismo y por 1.
-    3. Definir el caso específico de 1 como No primo.
-    */
+/*function esPrimo(num) {
+    
 
     if(num <= 0) {return "Ingrese un valor positivo"};
     if(typeof num !== "number") { return "Ingrese valor numérico" };
@@ -99,7 +95,31 @@ console.log(esPrimo(6));
 console.log(esPrimo(11));
 console.log(esPrimo(13));
 console.log(esPrimo(8));
-console.log(esPrimo(-11));
+console.log(esPrimo(-11)); */
+
+
+function esPrimo(num) {
+    if(typeof num !== "number") { return "Ingresa valor numérico" };
+    if(num <= 0) { return "Ingrese valor mayor que cero" }
+    if(num === 1) { return "No es primo" };
+    const raizCuadrada = Math.sqrt(num);
+
+    for(let i = 2; i <= raizCuadrada; i++) {
+        let resto = num % i;
+        if(resto === 0) {
+            return "No es primo";
+        }
+    }
+    return "Es primo";
+}
+
+console.log(esPrimo(0));
+console.log(esPrimo(-1));
+console.log(esPrimo("2"));
+console.log(esPrimo(1));
+console.log(esPrimo(7));
+console.log(esPrimo(5));
+console.log(esPrimo(9));
 
 // INVERTIR ARRAY
 
@@ -131,7 +151,7 @@ function fizzBuzz(num) {
     let fizzBuzzArray = [];
     let contador = 0;
 
-    for(i = 1; i <= num ; i++) {
+    for(let i = 1; i <= num ; i++) {
         array.push(i)
     }
 
