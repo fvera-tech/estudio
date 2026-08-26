@@ -54,9 +54,6 @@ function sumaAcumulada(num) {
 }
 
 
-    
-
-
 console.log(sumaAcumulada(10)); // 55 
 console.log(sumaAcumulada(-3)); // -6
 console.log(sumaAcumulada(5)); // 15
@@ -96,7 +93,6 @@ console.log(esPrimo(11));
 console.log(esPrimo(13));
 console.log(esPrimo(8));
 console.log(esPrimo(-11)); */
-
 
 function esPrimo(num) {
     if(typeof num !== "number") { return "Ingresa valor numérico" };
