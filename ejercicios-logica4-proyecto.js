@@ -2,8 +2,6 @@
 // El programa debe poder leer, eliminar, crear y modificar el carrito dependiendo de ciertas acciones como una compra.
 // Además se debe crear una función que calcule el total de una compra.
 
-// RECUERDA CORREGIR BUGS CON RESPECTO A ELIMINACIONES Y MEJORAR EL CARRITO.
-
 
 const inventario = [
     {
@@ -12,12 +10,12 @@ const inventario = [
         precio: 7000,
         stock: 3,
     },
-    {
+    /*{
         id: 2,
         nombre: "audífonos",
         precio: 15000,
         stock: 7,
-    },
+    },*/
     {
         id: 3,
         nombre: "notebook",
@@ -33,7 +31,7 @@ const inventario = [
 
 function agregarInventario(producto, precio, cantidad) {
 
-    // Validadores
+    // VALIDADORES
     // if(typeof id !== "number") return "Ingrese un ID válido";
     if(typeof producto !== "string") return "ingrese un producto válido";
     if(typeof precio !== "number") return "Ingrese un precio válido";
@@ -50,20 +48,18 @@ function agregarInventario(producto, precio, cantidad) {
         } 
     }
 
-    // Si el producto no existe, agregarlo al inventario.
-
     // Extraer el ID del último producto, para crear el Id del nuevo producto sumándole sólo uno a ese Id.
-    const ultimoId = inventario.length;
+    
+    const siguienteId = Math.max(...inventario.map(i => i.id)) + 1;
 
     const nuevoProducto = {
-        id: ultimoId + 1,
+        id: inventario.length === 0 ? 1 : siguienteId,
         nombre:  `${productoMinuscula}`,
         precio: precio,
         stock: cantidad
     }
 
     inventario.push(nuevoProducto);
-    console.log(inventario)
     return;
 
 }
@@ -108,46 +104,53 @@ function actualizarProducto(id, precio, stock) {
 }
 
 function eliminarProducto(id) {
-    // VALIDACIONES
-    if(typeof id !== "number") return "Ingrese un valor válido."
+    if (typeof id !== "number") return "Ingrese un valor válido.";
 
-    // ENCONTRAR EL ID Y ELIMINAR EL PRODUCTO.
+    const idEncontrado = inventario.findIndex(p => p.id === id);
 
-    for (const element of inventario) {
-
-        if(id === element.id) {
-            inventario.splice( id-1, 1 );
-            break;
-        }
+    if (idEncontrado === -1) {
+        return "Ese producto no existe";
     }
-    return;
+
+    const [productoEliminado] = inventario.splice(idEncontrado, 1);
+    return `Se eliminó "${productoEliminado.nombre}" del inventario`;
 }
 
-function compra( producto, cantidad ) {
+function compra(carrito) {
 
     // VALIDACIONES
 
-    if(typeof producto !== "string") return "ingrese un producto válido";
-    if(typeof cantidad!== "number") return "Ingrese un valor válido";
+    const isArray = Array.isArray(carrito);
+    if(!isArray) return "Error con el carrito";
+
+    // VARIABLES
 
     let boleta = 0;
 
     // IDENTIFICAR PRODUCTO
 
-    for (const element of inventario) {
-        
-        if(producto === element.nombre) {
-            const precioTotal = cantidad * element.precio;
-            boleta += precioTotal;
-            element.stock -= cantidad;
-            console.log(inventario)
-            break
+    for (const element of carrito) {
+    const productoAComprar = element.id;
+    const cantidadAComprar = element.cantidad;
+
+        for (const el of inventario) {
+
+            if(productoAComprar == el.id) {
+
+                if(el.stock < cantidadAComprar) {
+                    boleta += el.precio * el.stock;
+                    el.stock = 0;
+                    continue;
+                }
+                boleta += cantidadAComprar * el.precio;
+                el.stock -= cantidadAComprar;
+            } 
         }
-
     }
-
-    return `Tu cuenta a pagar es de $${boleta}. Sin descuento porque somos cagao.`
+    
+    return boleta;
 
 }
-// console.log(compra("teclado", 3));
+
+
 
