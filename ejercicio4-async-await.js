@@ -22,9 +22,6 @@ async function climaActual(ciudad) {
 
     }
 
-
-
-
 }
 
-console.log(climaActual("temuco"));
+console.log(climaActual("valparaiso"));
