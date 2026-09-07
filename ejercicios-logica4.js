@@ -40,3 +40,19 @@ function numeroAPalabras(num) {
 
     return partes.join(" ");
 }
+
+// Validar que la contraseña cumpla con ciertos requisitos.
+
+function validarContrasena(password) {
+    if (typeof password !== "string") return "Ingrese una contraseña válida";
+
+    const requisitosFaltantes = [];
+
+    if (password.length < 8) requisitosFaltantes.push("mínimo 8 caracteres");
+    if (!/[A-Z]/.test(password)) requisitosFaltantes.push("al menos una mayúscula");
+    if (!/[0-9]/.test(password)) requisitosFaltantes.push("al menos un número");
+    if (!/[^A-Za-z0-9]/.test(password)) requisitosFaltantes.push("al menos un símbolo");
+
+    if (requisitosFaltantes.length === 0) return "Contraseña válida: cumple todos los requisitos";
+    return requisitosFaltantes;
+}
