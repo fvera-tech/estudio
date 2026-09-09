@@ -1,0 +1,89 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: brown;
+    font-size: 3rem;
+}
+
+main form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+
+    fieldset {
+        padding: 2rem;
+        border-color: aqua;
+    }
+
+    fieldset .text {
+        padding: 1rem;
+    }
+
+    fieldset .button {
+        padding: 0.8rem;
+    }
+}
+
+main .tareas-asignadas h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: blueviolet;
+
+}
+
+main .tareas-asignadas ul {
+    list-style-type: none;
+    display: block;
+    padding: 2rem;
+
+    .btns {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 1rem;
+    }
+
+
+    li {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        font-size: 1.3rem;
+        border: 0.1rem solid black;
+        text-align: center;
+    }
+
+    button {
+        margin-right: 1rem;
+        padding: 0.5rem;
+    }
+
+    .delete {
+        background-color: rgb(255, 162, 162);
+
+    }
+
+    .complete {
+        background-color: rgb(174, 255, 174);
+    }
+
+    .update {
+        background-color: rgb(173, 164, 152);
+    }
+
+    button:last-of-type {
+        margin-right: 0;
+    }
+}
+
+footer h3 {
+    text-align: center;
+    color: rgb(102, 102, 230);
+    font-size: 1.6rem;
+
+}

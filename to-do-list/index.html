@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>To-do List</title>
 </head>
 
@@ -17,40 +18,48 @@
             <form>
                 <fieldset>
                     <label for="agregar">Agrega tu tarea</label>
-                    <input type="text" id="agregar" placeholder="¿Qué tienes que hacer?">
-                    <input type="button" value="Agregar">
+                    <input class="text" type="text" id="agregar" placeholder="¿Qué tienes que hacer?">
+                    <input class="button" type="button" value="Agregar">
                 </fieldset>
             </form>
 
         </section>
 
-        <section>
+        <section class="tareas-asignadas">
             <h2>Tareas por completar</h2>
 
             <ul>
                 <li>
-                    Tarea 1
-                    <button>❌ Eliminar</button>
-                    <button>✅ Completada</button>
-                    <button>❔ Editar</button>
+                    Tarea con texto muy largo para probar si la caja se mueve. Aja
+                    <div class="btns">
+                        <button class="delete">❌ Eliminar</button>
+                        <button class="complete">✅ Completada</button>
+                        <button class="update">❔ Editar</button>
+                    </div>
                 </li>
                 <li>
                     Tarea 2
-                    <button>❌ Eliminar</button>
-                    <button>✅ Completada</button>
-                    <button>❔ Editar</button>
+                    <div class="btns">
+                        <button class="delete">❌ Eliminar</button>
+                        <button class="complete">✅ Completada</button>
+                        <button class="update">❔ Editar</button>
+                    </div>
                 </li>
                 <li>
                     Tarea 3
-                    <button>❌ Eliminar</button>
-                    <button>✅ Completada</button>
-                    <button>❔ Editar</button>
+                    <div class="btns">
+                        <button class="delete">❌ Eliminar</button>
+                        <button class="complete">✅ Completada</button>
+                        <button class="update">❔ Editar</button>
+                    </div>
                 </li>
                 <li>
                     Tarea 4
-                    <button>❌ Eliminar</button>
-                    <button>✅ Completada</button>
-                    <button>❔ Editar</button>
+                    <div class="btns">
+                        <button class="delete">❌ Eliminar</button>
+                        <button class="complete">✅ Completada</button>
+                        <button class="update">❔ Editar</button>
+                    </div>
                 </li>
             </ul>
         </section>
