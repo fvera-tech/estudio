@@ -22,6 +22,10 @@ main form {
         border-color: aqua;
     }
 
+    fieldset label {
+        margin-right: 1.2rem;
+    }
+
     fieldset .text {
         padding: 1rem;
     }
@@ -59,9 +63,9 @@ main .tareas-asignadas ul {
     }
 
     button {
-        margin-right: 1rem;
         padding: 0.5rem;
     }
+
 
     .delete {
         background-color: rgb(255, 162, 162);
@@ -76,9 +80,6 @@ main .tareas-asignadas ul {
         background-color: rgb(173, 164, 152);
     }
 
-    button:last-of-type {
-        margin-right: 0;
-    }
 }
 
 footer h3 {
