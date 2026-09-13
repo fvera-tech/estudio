@@ -118,3 +118,8 @@ footer h3 {
     font-size: 1.6rem;
 
 }
+
+.completada {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
