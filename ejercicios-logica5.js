@@ -3,7 +3,9 @@ function capitalizarTitulo(titulo) {
     if (typeof titulo !== "string") return "Ingresa un título válido.";
     if (titulo === "") return "Ingresa un título válido.";
 
-    const palabrasSeparadas = titulo.split(" ");
+    const tituloMinuscula = titulo.toLowerCase() // Se convierte a minúscula el input para trabajar de manera generalizada el texto.
+
+    const palabrasSeparadas = tituloMinuscula.split(" ");
     const palabrasCapitalizadas = palabrasSeparadas.map((palabra) => {
         const inicialAMayuscula = palabra.charAt(0).toUpperCase();
         const resto = palabra.slice(1, palabra.length);
@@ -13,6 +15,7 @@ function capitalizarTitulo(titulo) {
     return palabrasCapitalizadas.join(" ");
 
 }
+
 
 function segundosAMinutos(num) {
     if (typeof num !== "number") return "Ingrese un número válido";
@@ -25,8 +28,7 @@ function segundosAMinutos(num) {
     const segundosString = String(segundos)
 
 
-    return `${minutosString.padStart(2, "0")}:${segundosString}`
+    return `${minutosString.padStart(2, "0")}:${segundosString.padStart(2, "0")}`
 
 }
 
-console.log(segundosAMinutos(879))
